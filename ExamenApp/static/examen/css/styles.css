@@ -1,0 +1,225 @@
+/*
+ * ExamenApp - Estilos para la preparación del Examen de Django
+ * Archivo: static/examen/css/styles.css
+ */
+
+/* --- Variables de Color --- */
+:root {
+    --primary-color: #007bff; /* Azul de examen */
+    --secondary-color: #f8f9fa; /* Fondo claro */
+    --text-color: #343a40; /* Texto oscuro */
+    --success-color: #28a745; /* Verde de éxito */
+    --border-radius: 8px;
+    --dark-grey: #495057; /* Gris oscuro para footer */
+}
+
+/* --- Estilos Generales --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    padding-top: 60px; /* Para dejar espacio al nav fijo */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* --- Navegación (nav.html) --- */
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    /* Para alinear la imagen y el texto */
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.logo-img {
+    height: 35px; /* Define la altura del logo */
+    width: auto;
+    border-radius: 4px; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    /* Permite que la lista de enlaces crezca y ocupe el espacio central */
+    flex-grow: 1; 
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: #0056b3; /* Tono más oscuro de azul */
+}
+
+/* Agrupación de botones y estado del usuario */
+.auth-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Estilos de los botones de autenticación */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-auth {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.btn-auth.login {
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid white;
+}
+
+.btn-auth.login:hover {
+    opacity: 0.9;
+}
+
+.btn-auth.register {
+    background-color: var(--success-color);
+    color: white;
+    border: 1px solid var(--success-color);
+}
+
+.btn-auth.register:hover {
+    background-color: #218838; /* Tono más oscuro de verde */
+}
+
+/* Estado del usuario */
+.user-status {
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+
+/* --- Contenido Principal (index.html/base.html) --- */
+
+.hero {
+    background-color: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.hero h1 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2.5em;
+}
+
+.description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tarjetas de Estadísticas */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background-color: #e9ecef;
+    padding: 20px 30px;
+    border-radius: var(--border-radius);
+    width: 200px;
+    text-align: center;
+    border-left: 5px solid var(--success-color);
+}
+
+.stat-card h2 {
+    font-size: 2.5em;
+    color: var(--success-color);
+}
+
+.stat-card p {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.button-start {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.button-start:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+/* --- Pie de Página (footer.html) --- */
+footer {
+    background-color: var(--dark-grey);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+.footer-content p:last-child {
+    margin-top: 10px;
+    color: #ced4da;
+    font-style: italic;
+}

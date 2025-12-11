@@ -1,0 +1,23 @@
+{% load static %}
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="{% static 'examen/images/logo.png' %}" alt="Logo ExamenApp" class="logo-img">
+        <span>ExamenApp</span>
+    </div>
+    
+    <ul class="nav-links">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Modelos</a></li>
+        <li><a href="#">Vistas</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="#">Acerca</a></li>
+    </ul>
+    
+    <div class="auth-group">
+        <div class="auth-buttons">
+            <a href="{% url 'login' %}" class="btn-auth login">Login</a>
+            <a href="#" class="btn-auth register">Registrarse</a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,28 @@
+{% extends 'examen/base.html' %}
+{% load static %}
+
+{% block title %}ExamenApp - Inicio del Test{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <h1>¡Bienvenido/a al Examen de Django!</h1>
+        <p class="description">
+            Esta es la aplicación de prueba **ExamenApp**. Utiliza este entorno para demostrar tus conocimientos de **Django**, **Modelos**, **Vistas**, y **Templates**. ¡Mucha suerte!
+        </p>
+        <div class="stats">
+            <div class="stat-card">
+                <h2>1</h2>
+                <p>Modelo Principal</p>
+            </div>
+            <div class="stat-card">
+                <h2>5</h2>
+                <p>Vistas Requeridas</p>
+            </div>
+            <div class="stat-card">
+                <h2>100%</h2>
+                <p>Tu Éxito</p>
+            </div>
+        </div>
+        <a href="#" class="button-start">Comenzar el Desarrollo</a>
+    </section>
+{% endblock %}

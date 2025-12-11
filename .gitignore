@@ -1,0 +1,14 @@
+#myvenv
+myvenv/
+
+#cache
+__pycache__
+
+# virtualenv
+.venv
+venv/
+ENV/
+.vscode
+
+#Base de datos
+db.sqlite3
