@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'django_bootstrap_icons',
     'ExamenApp',
+
 ]
 
 MIDDLEWARE = [
@@ -134,7 +135,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Custom user model
-#AUTH_USER_MODEL = 'ExamenApp.Usuario'
+AUTH_USER_MODEL = 'ExamenApp.Usuario'
 
 # Authentication redirects
 LOGIN_REDIRECT_URL = 'ExamenApp:index'

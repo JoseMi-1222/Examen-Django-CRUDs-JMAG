@@ -1,4 +1,11 @@
 {% load static %}
+<style>
+
+    .btn-auth.logout{
+        color: white;
+    }
+
+</style>
 
 <nav class="navbar">
     <div class="logo">
@@ -7,17 +14,31 @@
     </div>
     
     <ul class="nav-links">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Modelos</a></li>
-        <li><a href="#">Vistas</a></li>
-        <li><a href="#">Templates</a></li>
-        <li><a href="#">Acerca</a></li>
+        {% if perms.ExamenApp.add_ensayoclinico %}
+        <li><a href="{% url 'ExamenApp:crear_ensayo' %}">Crear Ensayo</a></li>
+        {% endif %}
+        <li><a href="{% url 'ExamenApp:listado_ensayos' %}">Listar Ensayos</a></li>
+        {% if perms.ExamenApp.view_ensayoclinico %}
+        <li><a href="{% url 'ExamenApp:buscar_ensayo' %}">Búsqueda avanzada</a></li>
+        {% endif %}
     </ul>
     
     <div class="auth-group">
-        <div class="auth-buttons">
-            <a href="{% url 'login' %}" class="btn-auth login">Login</a>
-            <a href="#" class="btn-auth register">Registrarse</a>
-        </div>
+        {% if not user.is_authenticated %}
+            <div class="auth-buttons">
+                <a href="{% url 'login' %}" class="btn-auth login">Login</a>
+                <a href="{% url 'ExamenApp:registrar_usuario' %}" class="btn-auth register">Registrarse</a>
+            </div>
+        {% else %}
+            <div class="auth-buttons">
+                <span class="welcome-msg">Bienvenid@, {{ user.username }}</span>
+                <form action="{% url 'logout' %}" method="post" class="d-flex w-100">
+                        {% csrf_token %}
+                        <button type="submit" class="dropdown-item text-danger">
+                        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                    </button>
+                </form>
+            </div>
+        {% endif %}
     </div>
 </nav>

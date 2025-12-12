@@ -223,3 +223,32 @@ footer {
     color: #ced4da;
     font-style: italic;
 }
+
+/* -----------------------------------------------------------
+   TABLAS (Estilos personalizados mantenidos)
+   ----------------------------------------------------------- */
+/* Nota: Si usas la clase .table de Bootstrap en el futuro, esto podría sobrescribirse */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white; /* Añadido para mejor lectura sobre fondo gris */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sutil sombra para estética */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Color de borde más suave */
+    padding: 12px; /* Un poco más de espacio */
+    text-align: left;
+}
+
+th {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/* Efecto hover para las filas (opcional, queda muy bien) */
+tr:hover {
+    background-color: #f9f9f9;
+}

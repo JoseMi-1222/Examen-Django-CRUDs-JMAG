@@ -1,0 +1,27 @@
+{% extends 'examen/base.html' %}
+{% load static %}
+
+{% block title %}ExamenApp - Detalle del Ensayo Clínico{% endblock %}
+
+{% block content %}
+    {% if ensayos %}
+    <section class="ensayo-detail">
+        <h1>Detalle del Ensayo Clínico: {{ ensayo.nombre }}</h1>
+        <ul>
+            <li><strong>Descripción:</strong> {{ ensayo.descripcion }}</li>
+            <li><strong>Fármaco:</strong> {{ ensayo.farmaco.nombre }}</li>
+            <li><strong>Nivel de Seguimiento:</strong> {{ ensayo.nivel_seguimiento }}</li>
+            <li><strong>Fecha de Inicio:</strong> {{ ensayo.fecha_inicio }}</li>
+            <li><strong>Fecha de Final:</strong> {{ ensayo.fecha_fin }}</li>
+            <li><strong>Activo:</strong> {{ ensayo.activo }}</li>
+            <li><strong>Creado Por:</strong> {{ ensayo.creado_por }}</li>
+            <li><strong>Número de Pacientes Inscritos:</strong> {{ ensayo.pacientes.count }}</li>
+            </li>
+        </ul>
+        <a href="{% url 'ExamenApp:listado_ensayos' %}">Volver al Listado de Ensayos</a>
+    </section>
+    {% else %}
+        <h2>No se encontró el ensayo clínico solicitado.</h2>
+        <a href="{% url 'ExamenApp:listado_ensayos' %}">Volver al Listado de Ensayos</a>
+    {% endif %}
+{% endblock %}

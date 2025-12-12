@@ -1,0 +1,19 @@
+{% extends 'examen/base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+
+{% block title %}Crear Ensayo Clínico - ExamenApp{% endblock %}
+
+{% block cabecera %}
+<h1>Crear Nuevo Ensayo Clínico</h1>
+{% endblock %}
+
+{% block content %}
+<h3>Rellena el formulario para añadir un nuevo ensayo clínico a la base de datos.</h3>
+<form action="{% url 'ExamenApp:crear_ensayo' %}" method="post" class="mt-4">
+    {% csrf_token %}
+    {% bootstrap_form formulario %}
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
+{% endblock %}

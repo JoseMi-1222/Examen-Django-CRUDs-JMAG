@@ -1,0 +1,19 @@
+{% extends 'examen/base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+
+{% block title %}Editar Ensayo Clínico - ExamenApp{% endblock %}
+
+{% block cabecera %}
+<h1>Editar Ensayo Clínico</h1>
+{% endblock %}
+
+{% block content %}
+<h3>Rellena el formulario para editar el ensayo clínico.</h3>
+<form action="{% url 'ExamenApp:editar_ensayo' ensayo.id %}" method="post" class="mt-4">
+    {% csrf_token %}
+    {% bootstrap_form formulario %}
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
+{% endblock %}

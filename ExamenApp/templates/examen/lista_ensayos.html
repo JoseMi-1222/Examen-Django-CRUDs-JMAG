@@ -1,0 +1,57 @@
+{% extends 'examen/base.html' %}
+
+{% load static %}
+
+{% block title %}ExamenApp - Listado de Ensayos Clínicos{% endblock %}
+
+{% block content %}
+    <h1>Listado de Ensayos Clínicos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Farmaco</th>
+                <th>Pacientes</th>
+                <th>Nivel de Seguimiento</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Final</th>
+                <th>Activo</th>
+                <th>Creado Por</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ensayo in ensayos %}
+            <tr>
+                <td>{{ ensayo.nombre }}</td>
+                <td>{{ ensayo.descripcion }}</td>
+                <td>{{ ensayo.farmaco.nombre }}</td>
+                <td>{{ ensayo.pacientes.count }}</td>
+                <td>{{ ensayo.nivel_seguimiento }}</td>
+                <td>{{ ensayo.fecha_inicio }}</td>
+                <td>{{ ensayo.fecha_fin }}</td>
+                <td>{{ ensayo.activo }}</td>
+                <td>{{ ensayo.creado_por }}</td>
+                <td>
+                    {% if perms.ExamenApp.view_ensayoclinico %}
+                    <a class="btn btn-sm btn-outline-primary me-2 text-nowrap" href="{% url 'ExamenApp:detalle_ensayo' ensayo.id %}">Ver en detalle</a>
+                    {% endif %}
+                    {% if perms.ExamenApp.change_ensayoclinico %}
+                    <a class="btn btn-sm btn-outline-secondary me-2 text-nowrap" href="{% url 'ExamenApp:editar_ensayo' ensayo.id %}">Editar</a>
+                    {% endif %}
+                    {% if perms.ExamenApp.delete_ensayoclinico %}
+                    <a class="btn btn-sm btn-outline-danger" href="{% url 'ExamenApp:eliminar_ensayo' ensayo.id %}" onclick="return confirm('¿Estás seguro de que deseas eliminar esta venta?');">Eliminar</a>
+                    {% endif %}
+                </td>
+                
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="10">No hay ensayos clínicos disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'ExamenApp:index' %}">Volver al inicio</a>
+{% endblock %}
